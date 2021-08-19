@@ -50,6 +50,14 @@ namespace CadastroArray
             btnImprimir.Enabled = true;
             btnSair.Enabled = true;
         }
+        private void Mostra()
+        {
+            txtCodigo.Text = (frmPrincipal.usuarios[atual].codigo).ToString();
+            txtNome.Text = frmPrincipal.usuarios[atual].nome;
+            txtNivel.Text = frmPrincipal.usuarios[atual].nivel;
+            txtLogin.Text = frmPrincipal.usuarios[atual].login;
+            txtSenha.Text = frmPrincipal.usuarios[atual].senha;
+        }
         public frmUsuario()
         {
             InitializeComponent();
@@ -77,6 +85,10 @@ namespace CadastroArray
             {
                 Habilita();
                 txtCodigo.Text = (frmPrincipal.cadusu + 1).ToString();
+                txtNome.Clear();
+                txtNivel.Clear();
+                txtLogin.Clear();
+                txtSenha.Clear();
                 tipo = true;
             }
             else
@@ -122,33 +134,30 @@ namespace CadastroArray
             atual = int.Parse(txtCodigo.Text) - 2;
             if (atual >= 0)
             {
-                txtCodigo.Text = (frmPrincipal.usuarios[atual].codigo).ToString();
-                txtNome.Text = frmPrincipal.usuarios[atual].nome;
-                txtNivel.Text = frmPrincipal.usuarios[atual].nivel;
-                txtLogin.Text = frmPrincipal.usuarios[atual].login;
-                txtSenha.Text = frmPrincipal.usuarios[atual].senha;
-            }
-            else
-            {
-               MessageBox.Show("Chegamos ao fim!");
-            }
-            
+                Mostra();
+            }            
         }
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
             atual = int.Parse(txtCodigo.Text);
-            if (atual <= 9)
+            if (atual <= frmPrincipal.cadusu - 1) 
             {
-                txtCodigo.Text = (frmPrincipal.usuarios[atual].codigo).ToString();
-                txtNome.Text = frmPrincipal.usuarios[atual].nome;
-                txtNivel.Text = frmPrincipal.usuarios[atual].nivel;
-                txtLogin.Text = frmPrincipal.usuarios[atual].login;
-                txtSenha.Text = frmPrincipal.usuarios[atual].senha;
+                Mostra();
             }
-            else
+            
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Quer apagar esse registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Chegamos ao fim!");
+
+                frmPrincipal.usuarios[atual].nome = "";
+                frmPrincipal.usuarios[atual].nivel = "";
+                frmPrincipal.usuarios[atual].login = "";
+                frmPrincipal.usuarios[atual].senha = "";
+                Mostra();
             }
         }
     }

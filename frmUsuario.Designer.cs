@@ -113,6 +113,7 @@ namespace CadastroArray
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(206, 96);
+            this.txtNome.MaxLength = 40;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(473, 26);
             this.txtNome.TabIndex = 6;
@@ -121,6 +122,7 @@ namespace CadastroArray
             // 
             this.txtNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNivel.Location = new System.Drawing.Point(206, 167);
+            this.txtNivel.MaxLength = 1;
             this.txtNivel.Name = "txtNivel";
             this.txtNivel.Size = new System.Drawing.Size(35, 26);
             this.txtNivel.TabIndex = 7;
@@ -129,6 +131,7 @@ namespace CadastroArray
             // 
             this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLogin.Location = new System.Drawing.Point(206, 238);
+            this.txtLogin.MaxLength = 15;
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(174, 26);
             this.txtLogin.TabIndex = 8;
@@ -137,9 +140,11 @@ namespace CadastroArray
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(206, 309);
+            this.txtSenha.MaxLength = 15;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(174, 26);
             this.txtSenha.TabIndex = 9;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // btnAnterior
             // 
@@ -233,6 +238,7 @@ namespace CadastroArray
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSair
             // 
