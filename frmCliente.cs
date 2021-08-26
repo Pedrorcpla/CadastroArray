@@ -214,5 +214,44 @@ namespace CadastroArray
                 Mostra();
             }
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pnlPesquisa.Visible = true;
+        }
+
+        private void btnOkPesquisa_Click(object sender, EventArgs e)
+        {
+            int x;
+            if (txtNomePesquisa.Text != "")
+            {
+                for (x = 0; x < 10; x++)
+                {
+                    if (frmPrincipal.cliente[x].nome == txtNomePesquisa.Text)
+                    {
+                        atual = x;
+                        Mostra();
+                        break;
+                    }
+                }
+                if (x == 10)
+                {
+                    MessageBox.Show("Nome não encontrado!");
+                }
+                pnlPesquisa.Visible = false;
+                txtNomePesquisa.Text = null;
+            }
+            else
+            {
+                MessageBox.Show("Digite um nome para pesquisa.");
+                txtNomePesquisa.Focus();
+            }
+        }
+
+        private void btnCancelarPesquisa_Click(object sender, EventArgs e)
+        {
+            pnlPesquisa.Visible = false;
+            txtNomePesquisa.Text = null;
+        }
     }
 }

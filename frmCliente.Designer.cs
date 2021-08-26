@@ -63,6 +63,12 @@ namespace CadastroArray
             this.label11 = new System.Windows.Forms.Label();
             this.txtRg = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.btnCancelarPesquisa = new System.Windows.Forms.Button();
+            this.btnOkPesquisa = new System.Windows.Forms.Button();
+            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pnlPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAlterar
@@ -134,6 +140,7 @@ namespace CadastroArray
             this.btnPesquisar.TabIndex = 44;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -410,11 +417,66 @@ namespace CadastroArray
             this.label12.TabIndex = 52;
             this.label12.Text = "RG";
             // 
+            // pnlPesquisa
+            // 
+            this.pnlPesquisa.BackColor = System.Drawing.Color.LawnGreen;
+            this.pnlPesquisa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlPesquisa.Controls.Add(this.btnCancelarPesquisa);
+            this.pnlPesquisa.Controls.Add(this.btnOkPesquisa);
+            this.pnlPesquisa.Controls.Add(this.txtNomePesquisa);
+            this.pnlPesquisa.Controls.Add(this.label13);
+            this.pnlPesquisa.Location = new System.Drawing.Point(98, 140);
+            this.pnlPesquisa.Name = "pnlPesquisa";
+            this.pnlPesquisa.Size = new System.Drawing.Size(636, 100);
+            this.pnlPesquisa.TabIndex = 53;
+            this.pnlPesquisa.Visible = false;
+            // 
+            // btnCancelarPesquisa
+            // 
+            this.btnCancelarPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarPesquisa.Location = new System.Drawing.Point(447, 55);
+            this.btnCancelarPesquisa.Name = "btnCancelarPesquisa";
+            this.btnCancelarPesquisa.Size = new System.Drawing.Size(84, 33);
+            this.btnCancelarPesquisa.TabIndex = 3;
+            this.btnCancelarPesquisa.Text = "Cancelar";
+            this.btnCancelarPesquisa.UseVisualStyleBackColor = true;
+            this.btnCancelarPesquisa.Click += new System.EventHandler(this.btnCancelarPesquisa_Click);
+            // 
+            // btnOkPesquisa
+            // 
+            this.btnOkPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkPesquisa.Location = new System.Drawing.Point(357, 55);
+            this.btnOkPesquisa.Name = "btnOkPesquisa";
+            this.btnOkPesquisa.Size = new System.Drawing.Size(84, 33);
+            this.btnOkPesquisa.TabIndex = 2;
+            this.btnOkPesquisa.Text = "Ok";
+            this.btnOkPesquisa.UseVisualStyleBackColor = true;
+            this.btnOkPesquisa.Click += new System.EventHandler(this.btnOkPesquisa_Click);
+            // 
+            // txtNomePesquisa
+            // 
+            this.txtNomePesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomePesquisa.Location = new System.Drawing.Point(87, 20);
+            this.txtNomePesquisa.Name = "txtNomePesquisa";
+            this.txtNomePesquisa.Size = new System.Drawing.Size(518, 26);
+            this.txtNomePesquisa.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(26, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Nome:";
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlPesquisa);
             this.Controls.Add(this.txtRg);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtCep);
@@ -452,6 +514,8 @@ namespace CadastroArray
             this.Name = "frmCliente";
             this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.frmCliente_Load);
+            this.pnlPesquisa.ResumeLayout(false);
+            this.pnlPesquisa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +557,10 @@ namespace CadastroArray
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtRg;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel pnlPesquisa;
+        private System.Windows.Forms.Button btnCancelarPesquisa;
+        private System.Windows.Forms.Button btnOkPesquisa;
+        private System.Windows.Forms.TextBox txtNomePesquisa;
+        private System.Windows.Forms.Label label13;
     }
 }
