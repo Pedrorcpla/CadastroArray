@@ -253,5 +253,33 @@ namespace CadastroArray
             pnlPesquisa.Visible = false;
             txtNomePesquisa.Text = null;
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Show();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string strDados;
+            Graphics objImpressao = e.Graphics;
+
+            strDados = "FICHA DE CLIENTE" + (char)10 + (char)10;
+            strDados = strDados + "Código: " + txtCodigo.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome: " + txtNome.Text + (char)10 + (char)10;
+            strDados = strDados + "CPF: " + txtCpf.Text + (char)10 + (char)10;
+            strDados = strDados + "RG: " + txtRg.Text + (char)10 + (char)10;
+            strDados = strDados + "E-mail: " + txtEmail.Text + (char)10 + (char)10;
+            strDados = strDados + "Telefone: " + txtTelefone.Text + (char)10 + (char)10;
+            strDados = strDados + "Estado: " + txtEstado.Text + (char)10 + (char)10;
+            strDados = strDados + "Cidade: " + txtCidade.Text + (char)10 + (char)10;
+            strDados = strDados + "Número: " + txtNumero.Text + (char)10 + (char)10;
+            strDados = strDados + "Bairro: " + txtBairro.Text + (char)10 + (char)10;
+            strDados = strDados + "Rua: " + txtRua.Text + (char)10 + (char)10;
+            strDados = strDados + "CEP: " + txtCep.Text;
+
+            objImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 50);
+            objImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black, 1), 50, 80, 780, 80);
+        }
     }
 }

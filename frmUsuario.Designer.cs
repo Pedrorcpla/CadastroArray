@@ -29,6 +29,7 @@ namespace CadastroArray
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,10 +51,12 @@ namespace CadastroArray
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
-            this.btnOkPesquisa = new System.Windows.Forms.Button();
             this.btnCancelarPesquisa = new System.Windows.Forms.Button();
+            this.btnOkPesquisa = new System.Windows.Forms.Button();
+            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pnlPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,6 +225,7 @@ namespace CadastroArray
             this.btnImprimir.TabIndex = 18;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnProximo
             // 
@@ -285,23 +289,16 @@ namespace CadastroArray
             this.pnlPesquisa.TabIndex = 20;
             this.pnlPesquisa.Visible = false;
             // 
-            // label6
+            // btnCancelarPesquisa
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nome:";
-            // 
-            // txtNomePesquisa
-            // 
-            this.txtNomePesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomePesquisa.Location = new System.Drawing.Point(87, 20);
-            this.txtNomePesquisa.Name = "txtNomePesquisa";
-            this.txtNomePesquisa.Size = new System.Drawing.Size(518, 26);
-            this.txtNomePesquisa.TabIndex = 1;
+            this.btnCancelarPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarPesquisa.Location = new System.Drawing.Point(447, 55);
+            this.btnCancelarPesquisa.Name = "btnCancelarPesquisa";
+            this.btnCancelarPesquisa.Size = new System.Drawing.Size(84, 33);
+            this.btnCancelarPesquisa.TabIndex = 3;
+            this.btnCancelarPesquisa.Text = "Cancelar";
+            this.btnCancelarPesquisa.UseVisualStyleBackColor = true;
+            this.btnCancelarPesquisa.Click += new System.EventHandler(this.btnCancelarPesquisa_Click);
             // 
             // btnOkPesquisa
             // 
@@ -314,16 +311,38 @@ namespace CadastroArray
             this.btnOkPesquisa.UseVisualStyleBackColor = true;
             this.btnOkPesquisa.Click += new System.EventHandler(this.btnOkPesquisa_Click);
             // 
-            // btnCancelarPesquisa
+            // txtNomePesquisa
             // 
-            this.btnCancelarPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarPesquisa.Location = new System.Drawing.Point(447, 55);
-            this.btnCancelarPesquisa.Name = "btnCancelarPesquisa";
-            this.btnCancelarPesquisa.Size = new System.Drawing.Size(84, 33);
-            this.btnCancelarPesquisa.TabIndex = 3;
-            this.btnCancelarPesquisa.Text = "Cancelar";
-            this.btnCancelarPesquisa.UseVisualStyleBackColor = true;
-            this.btnCancelarPesquisa.Click += new System.EventHandler(this.btnCancelarPesquisa_Click);
+            this.txtNomePesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomePesquisa.Location = new System.Drawing.Point(87, 20);
+            this.txtNomePesquisa.Name = "txtNomePesquisa";
+            this.txtNomePesquisa.Size = new System.Drawing.Size(518, 26);
+            this.txtNomePesquisa.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Nome:";
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // frmUsuario
             // 
@@ -389,5 +408,7 @@ namespace CadastroArray
         private System.Windows.Forms.Button btnOkPesquisa;
         private System.Windows.Forms.TextBox txtNomePesquisa;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
