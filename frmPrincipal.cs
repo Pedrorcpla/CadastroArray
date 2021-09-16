@@ -82,7 +82,7 @@ namespace CadastroArray
 
         private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ppdUsuario.Show();
+            ppdUsuario.ShowDialog();
         }
 
         private void pdRelCliente_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -105,7 +105,7 @@ namespace CadastroArray
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ppdCliente.Show();
+            ppdCliente.ShowDialog();
         }
     }
 }

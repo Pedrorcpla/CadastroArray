@@ -203,7 +203,7 @@ namespace CadastroArray
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.Show();
+            printPreviewDialog1.ShowDialog();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
