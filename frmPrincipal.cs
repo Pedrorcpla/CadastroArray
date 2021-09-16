@@ -61,5 +61,51 @@ namespace CadastroArray
             frmCliente fc = new frmCliente();
             fc.ShowDialog();
         }
+
+        private void pdRelUsuario_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string strDados;
+            int x = 0;
+            Graphics objImpressao = e.Graphics;
+
+            strDados = "Relatório de Usuário" + (char)10 + (char)10;
+            strDados += "Código Nome:                                    Nível Login" + (char)10;
+            strDados += "--------------------------------------------------------------" + (char)10;
+            while (x < cadusu)
+            {
+                strDados += usuarios[x].codigo.ToString("000000") + " " + usuarios[x].nome.PadRight(40) + "   " +
+                    usuarios[x].nivel + "   " + usuarios[x].login + (char)10;
+                x++;
+            }
+            objImpressao.DrawString(strDados, new System.Drawing.Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 50, 50);
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ppdUsuario.Show();
+        }
+
+        private void pdRelCliente_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string strDados;
+            int x = 0;
+            Graphics objImpressao = e.Graphics;
+
+            strDados = "Relatório de Cliente" + (char)10 + (char)10;
+            strDados += "Código Nome:                                    CEP       Estado Cidade" + (char)10;
+            strDados += "-----------------------------------------------------------------------" + (char)10;
+            while (x < cadcli)
+            {
+                strDados += cliente[x].codigo.ToString("000000") + " " + cliente[x].nome.PadRight(40) + " " +
+                    cliente[x].cep + "   " + cliente[x].estado + "   " + cliente[x].cidade + (char)10;
+                x++;
+            }
+            objImpressao.DrawString(strDados, new System.Drawing.Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 50, 50);
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ppdCliente.Show();
+        }
     }
 }

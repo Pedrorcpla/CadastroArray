@@ -29,6 +29,7 @@ namespace CadastroArray
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +38,10 @@ namespace CadastroArray
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pdRelUsuario = new System.Drawing.Printing.PrintDocument();
+            this.pdRelCliente = new System.Drawing.Printing.PrintDocument();
+            this.ppdUsuario = new System.Windows.Forms.PrintPreviewDialog();
+            this.ppdCliente = new System.Windows.Forms.PrintPreviewDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,14 +69,14 @@ namespace CadastroArray
             // usuárioToolStripMenuItem
             // 
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.usuárioToolStripMenuItem.Text = "Usuários";
             this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -87,14 +92,16 @@ namespace CadastroArray
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
+            this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -102,6 +109,36 @@ namespace CadastroArray
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // pdRelUsuario
+            // 
+            this.pdRelUsuario.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdRelUsuario_PrintPage);
+            // 
+            // pdRelCliente
+            // 
+            this.pdRelCliente.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdRelCliente_PrintPage);
+            // 
+            // ppdUsuario
+            // 
+            this.ppdUsuario.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppdUsuario.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppdUsuario.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppdUsuario.Document = this.pdRelUsuario;
+            this.ppdUsuario.Enabled = true;
+            this.ppdUsuario.Icon = ((System.Drawing.Icon)(resources.GetObject("ppdUsuario.Icon")));
+            this.ppdUsuario.Name = "ppdUsuario";
+            this.ppdUsuario.Visible = false;
+            // 
+            // ppdCliente
+            // 
+            this.ppdCliente.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppdCliente.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppdCliente.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppdCliente.Document = this.pdRelCliente;
+            this.ppdCliente.Enabled = true;
+            this.ppdCliente.Icon = ((System.Drawing.Icon)(resources.GetObject("ppdCliente.Icon")));
+            this.ppdCliente.Name = "ppdCliente";
+            this.ppdCliente.Visible = false;
             // 
             // frmPrincipal
             // 
@@ -129,6 +166,10 @@ namespace CadastroArray
         private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument pdRelUsuario;
+        private System.Drawing.Printing.PrintDocument pdRelCliente;
+        private System.Windows.Forms.PrintPreviewDialog ppdUsuario;
+        private System.Windows.Forms.PrintPreviewDialog ppdCliente;
     }
 }
 
